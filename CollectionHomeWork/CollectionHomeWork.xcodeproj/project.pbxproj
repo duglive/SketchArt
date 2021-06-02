@@ -17,6 +17,7 @@
 		813521C42662950F0042C5A3 /* CustomLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813521C32662950F0042C5A3 /* CustomLayout.swift */; };
 		813521CE266542AF0042C5A3 /* PictureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813521CD266542AF0042C5A3 /* PictureCell.swift */; };
 		817FCD1F2667938100E3FAE2 /* DrawingsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817FCD1E2667938100E3FAE2 /* DrawingsProtocols.swift */; };
+		817FCD272668166C00E3FAE2 /* DConsts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817FCD262668166C00E3FAE2 /* DConsts.swift */; };
 		B72F5545266747AC00645451 /* CanvasController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72F5544266747AC00645451 /* CanvasController.swift */; };
 		B72F554926674B6100645451 /* ColorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72F554826674B6100645451 /* ColorButton.swift */; };
 		B72F554C2667697600645451 /* ColorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72F554B2667697600645451 /* ColorTableViewCell.swift */; };
@@ -37,6 +38,7 @@
 		813521C32662950F0042C5A3 /* CustomLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLayout.swift; sourceTree = "<group>"; };
 		813521CD266542AF0042C5A3 /* PictureCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureCell.swift; sourceTree = "<group>"; };
 		817FCD1E2667938100E3FAE2 /* DrawingsProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingsProtocols.swift; sourceTree = "<group>"; };
+		817FCD262668166C00E3FAE2 /* DConsts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DConsts.swift; sourceTree = "<group>"; };
 		B72F5544266747AC00645451 /* CanvasController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasController.swift; sourceTree = "<group>"; };
 		B72F554826674B6100645451 /* ColorButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorButton.swift; sourceTree = "<group>"; };
 		B72F554B2667697600645451 /* ColorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTableViewCell.swift; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 		813521CB2662A6CD0042C5A3 /* Drawings */ = {
 			isa = PBXGroup;
 			children = (
+				817FCD262668166C00E3FAE2 /* DConsts.swift */,
 				817FCD1E2667938100E3FAE2 /* DrawingsProtocols.swift */,
 				812BD9CF26678CD300B4F6B3 /* Model */,
 				B72F55392667447200645451 /* Views */,
@@ -243,6 +246,7 @@
 				B72F554F26677F9D00645451 /* BaseButton.swift in Sources */,
 				B72F5545266747AC00645451 /* CanvasController.swift in Sources */,
 				813521C42662950F0042C5A3 /* CustomLayout.swift in Sources */,
+				817FCD272668166C00E3FAE2 /* DConsts.swift in Sources */,
 				B72F5553266781D400645451 /* ColorTableView.swift in Sources */,
 				B72F554926674B6100645451 /* ColorButton.swift in Sources */,
 				813521AF266293340042C5A3 /* DrawingsViewController.swift in Sources */,

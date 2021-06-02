@@ -20,12 +20,20 @@ final class DrawingsView: UIView {
         return cv
     }()
     
+    private lazy var additinalMenu: UIView = {
+        let view = UIView()
+        view.backgroundColor = .cyan
+        return view
+    }()
+    private var cellHeight: CGFloat = 0
+    
     weak var delegate: DrawingsViewDelegate!
 }
 
 extension DrawingsView: DrawingsViewProtocol {
     func setupView() {
         addSubview(collectionView)
+        addSubview(additinalMenu)
         
         NSLayoutConstraint.activate([
             collectionView.topAnchor.constraint(equalTo: topAnchor),
@@ -33,6 +41,37 @@ extension DrawingsView: DrawingsViewProtocol {
             collectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
             collectionView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
+        
+        let menuHeight = DConstants.additinalMenuHeight
+        additinalMenu.frame = CGRect(x: 0, y: -menuHeight, width: collectionView.frame.width, height: menuHeight)
+    }
+}
+
+extension DrawingsView: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if cellHeight == 0 { return }
+        let offsetY = scrollView.contentOffset.y
+        let menuHeight = DConstants.additinalMenuHeight
+        
+        if offsetY > cellHeight && offsetY < cellHeight + menuHeight {
+            additinalMenu.frame = CGRect(x: 0, y: offsetY - cellHeight - menuHeight, width: collectionView.frame.width, height: menuHeight)
+            return
+        }
+        
+        if offsetY < 0 {
+            additinalMenu.frame = CGRect(x: 0, y: -menuHeight, width: collectionView.frame.width, height: menuHeight)
+            return
+        }
+        
+        if offsetY > cellHeight + menuHeight && additinalMenu.frame.maxY != menuHeight {
+            additinalMenu.frame = CGRect(x: 0, y: 0, width: collectionView.frame.width, height: menuHeight)
+            return
+        }
+    
+        if offsetY < cellHeight {
+            additinalMenu.frame = CGRect(x: 0, y: -menuHeight, width: collectionView.frame.width, height: menuHeight)
+            return
+        }
     }
 }
 
@@ -46,12 +85,11 @@ extension DrawingsView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PictureCell.id, for: indexPath) as! PictureCell
         
-        if indexPath.row == 0 {
-            cell.configView(with: "New drawing")
-            return cell
-        }
         cell.configView(with: delegate.picture(at: indexPath))
         
+        if indexPath.row == 0 {
+            cellHeight = cell.bounds.height
+        }
         return cell
     }
     

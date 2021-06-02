@@ -11,6 +11,8 @@ protocol DrawingsViewDelegate: AnyObject {
     func newDrawing()
     func picturesCount() -> Int
     func picture(at index: IndexPath) -> PictureModel
+    func firstCellisHidden()
+    func firstCellisntHidden()
 }
 
 protocol DrawingsViewProtocol: AnyObject {

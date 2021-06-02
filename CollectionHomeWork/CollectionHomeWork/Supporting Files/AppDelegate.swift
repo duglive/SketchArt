@@ -17,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let rootView = Assembly.createDrawingsModule()
         let navigationController = UINavigationController(rootViewController: rootView)
         navigationController.isNavigationBarHidden = true
+        
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
         return true
