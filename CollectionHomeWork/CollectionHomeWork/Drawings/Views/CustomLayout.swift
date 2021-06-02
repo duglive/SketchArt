@@ -47,7 +47,6 @@ final class CustomLayout: UICollectionViewLayout {
 
          var i = 0
          for columnHeight in columsHeights {
-             debugPrint("Column Height: \(columnHeight) index: \(i)")
              if(Float(columnHeight) < shortestValue)
              {
                  shortestValue = Float(columnHeight)
@@ -55,7 +54,6 @@ final class CustomLayout: UICollectionViewLayout {
              }
              i += 1
          }
-         debugPrint("shortest Column index: \(retVal)")
          return retVal
      }
 

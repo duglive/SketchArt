@@ -20,17 +20,25 @@ final class DrawingsView: UIView {
         return cv
     }()
     
-    private lazy var additinalMenu: UIView = {
-        let view = UIView()
+    private lazy var additinalMenu: AdditinalMenuView = {
+        let view = AdditinalMenuView()
         view.backgroundColor = .cyan
         return view
     }()
+    
+    private let statusBarHeight: CGFloat = UIApplication.shared.statusBarFrame.height
     private var cellHeight: CGFloat = 0
     
     weak var delegate: DrawingsViewDelegate!
 }
 
 extension DrawingsView: DrawingsViewProtocol {
+    func setupAdditinalMenu() {
+        let menuHeight = DConstants.additinalMenuHeight
+        
+        additinalMenu.frame = CGRect(x: 0, y: -menuHeight - -statusBarHeight, width: collectionView.frame.width, height: menuHeight)
+    }
+    
     func setupView() {
         addSubview(collectionView)
         addSubview(additinalMenu)
@@ -41,9 +49,6 @@ extension DrawingsView: DrawingsViewProtocol {
             collectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
             collectionView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
-        
-        let menuHeight = DConstants.additinalMenuHeight
-        additinalMenu.frame = CGRect(x: 0, y: -menuHeight, width: collectionView.frame.width, height: menuHeight)
     }
 }
 
@@ -53,24 +58,10 @@ extension DrawingsView: UIScrollViewDelegate {
         let offsetY = scrollView.contentOffset.y
         let menuHeight = DConstants.additinalMenuHeight
         
-        if offsetY > cellHeight && offsetY < cellHeight + menuHeight {
-            additinalMenu.frame = CGRect(x: 0, y: offsetY - cellHeight - menuHeight, width: collectionView.frame.width, height: menuHeight)
-            return
-        }
-        
-        if offsetY < 0 {
-            additinalMenu.frame = CGRect(x: 0, y: -menuHeight, width: collectionView.frame.width, height: menuHeight)
-            return
-        }
-        
-        if offsetY > cellHeight + menuHeight && additinalMenu.frame.maxY != menuHeight {
-            additinalMenu.frame = CGRect(x: 0, y: 0, width: collectionView.frame.width, height: menuHeight)
-            return
-        }
-    
-        if offsetY < cellHeight {
-            additinalMenu.frame = CGRect(x: 0, y: -menuHeight, width: collectionView.frame.width, height: menuHeight)
-            return
+        if offsetY > cellHeight - statusBarHeight {
+            additinalMenu.frame = CGRect(x: 0, y: statusBarHeight, width: collectionView.bounds.width, height: menuHeight)
+        } else {
+            additinalMenu.frame = CGRect(x: 0, y: -menuHeight - -statusBarHeight, width: collectionView.frame.width, height: menuHeight)
         }
     }
 }

@@ -17,4 +17,5 @@ protocol DrawingsViewDelegate: AnyObject {
 
 protocol DrawingsViewProtocol: AnyObject {
     func setupView()
+    func setupAdditinalMenu()
 }

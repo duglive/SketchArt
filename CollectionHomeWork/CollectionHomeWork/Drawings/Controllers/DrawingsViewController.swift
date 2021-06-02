@@ -15,6 +15,7 @@ final class DrawingsViewController: UIViewController {
         self.myView = view
         pictures = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 ,24].map { PictureModel(with: UIImage(named: "\($0)")!)
         }
+        
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -29,6 +30,15 @@ final class DrawingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         myView.setupView()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        myView.setupAdditinalMenu()
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .darkContent
     }
 }
 
