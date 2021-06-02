@@ -13,6 +13,8 @@
 		813521B7266293390042C5A3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 813521B5266293390042C5A3 /* LaunchScreen.storyboard */; };
 		813521C42662950F0042C5A3 /* CustomLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813521C32662950F0042C5A3 /* CustomLayout.swift */; };
 		813521CE266542AF0042C5A3 /* PictureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813521CD266542AF0042C5A3 /* PictureCell.swift */; };
+		B72F5545266747AC00645451 /* CanvasController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72F5544266747AC00645451 /* CanvasController.swift */; };
+		B72F554926674B6100645451 /* ColorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72F554826674B6100645451 /* ColorButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		813521B8266293390042C5A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		813521C32662950F0042C5A3 /* CustomLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLayout.swift; sourceTree = "<group>"; };
 		813521CD266542AF0042C5A3 /* PictureCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureCell.swift; sourceTree = "<group>"; };
+		B72F5544266747AC00645451 /* CanvasController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasController.swift; sourceTree = "<group>"; };
+		B72F554826674B6100645451 /* ColorButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,10 +60,9 @@
 		813521A9266293340042C5A3 /* CollectionHomeWork */ = {
 			isa = PBXGroup;
 			children = (
-				813521AA266293340042C5A3 /* AppDelegate.swift */,
 				813521CB2662A6CD0042C5A3 /* Drawings */,
-				813521B3266293390042C5A3 /* Assets.xcassets */,
-				813521B5266293390042C5A3 /* LaunchScreen.storyboard */,
+				B72F55402667470900645451 /* Canvas */,
+				B72F55382667444700645451 /* Supporting Files */,
 				813521B8266293390042C5A3 /* Info.plist */,
 			);
 			path = CollectionHomeWork;
@@ -68,11 +71,78 @@
 		813521CB2662A6CD0042C5A3 /* Drawings */ = {
 			isa = PBXGroup;
 			children = (
-				813521AE266293340042C5A3 /* DrawingsViewController.swift */,
+				B72F553C266744A400645451 /* Models */,
+				B72F55392667447200645451 /* Views */,
+				B72F553B2667448E00645451 /* Controllers */,
+			);
+			path = Drawings;
+			sourceTree = "<group>";
+		};
+		B72F55382667444700645451 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				813521AA266293340042C5A3 /* AppDelegate.swift */,
+				813521B3266293390042C5A3 /* Assets.xcassets */,
+				813521B5266293390042C5A3 /* LaunchScreen.storyboard */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B72F55392667447200645451 /* Views */ = {
+			isa = PBXGroup;
+			children = (
 				813521C32662950F0042C5A3 /* CustomLayout.swift */,
 				813521CD266542AF0042C5A3 /* PictureCell.swift */,
 			);
-			path = Drawings;
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B72F553B2667448E00645451 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				813521AE266293340042C5A3 /* DrawingsViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		B72F553C266744A400645451 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B72F55402667470900645451 /* Canvas */ = {
+			isa = PBXGroup;
+			children = (
+				B72F55412667475500645451 /* Models */,
+				B72F55422667476400645451 /* Views */,
+				B72F55432667476C00645451 /* Controllers */,
+			);
+			path = Canvas;
+			sourceTree = "<group>";
+		};
+		B72F55412667475500645451 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B72F55422667476400645451 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B72F554826674B6100645451 /* ColorButton.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B72F55432667476C00645451 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B72F5544266747AC00645451 /* CanvasController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -145,7 +215,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				813521CE266542AF0042C5A3 /* PictureCell.swift in Sources */,
+				B72F5545266747AC00645451 /* CanvasController.swift in Sources */,
 				813521C42662950F0042C5A3 /* CustomLayout.swift in Sources */,
+				B72F554926674B6100645451 /* ColorButton.swift in Sources */,
 				813521AF266293340042C5A3 /* DrawingsViewController.swift in Sources */,
 				813521AB266293340042C5A3 /* AppDelegate.swift in Sources */,
 			);
