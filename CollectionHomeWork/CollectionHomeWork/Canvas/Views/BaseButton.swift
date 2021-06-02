@@ -1,5 +1,5 @@
 //
-//  ColorButton.swift
+//  BaseButton.swift
 //  CollectionHomeWork
 //
 //  Created by Саид Дагалаев on 02.06.2021.
@@ -7,18 +7,17 @@
 
 import UIKit
 
-class ColorButton : UIButton {
+class BaseButton : UIButton {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
     
-    convenience init() {
+    convenience init(imageName: String) {
         self.init(frame: .zero)
         
-        backgroundColor = .red
-        layer.borderWidth = 1
-        layer.borderColor = UIColor.black.cgColor
+        tintColor = .black
+        setBackgroundImage(UIImage(systemName: imageName), for: .normal)
         translatesAutoresizingMaskIntoConstraints = false
     }
     
@@ -26,10 +25,9 @@ class ColorButton : UIButton {
         view.addSubview(self)
         
         NSLayoutConstraint.activate([
-            self.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 16),
-            self.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 80),
-            self.heightAnchor.constraint(equalToConstant: 30),
-            self.widthAnchor.constraint(equalToConstant: 30)
+            topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
+            heightAnchor.constraint(equalToConstant: 30),
+            widthAnchor.constraint(equalToConstant: 30)
         ])
     }
     
