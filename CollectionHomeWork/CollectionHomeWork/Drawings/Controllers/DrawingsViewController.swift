@@ -63,12 +63,17 @@ extension DrawingsViewController: UICollectionViewDataSource {
         
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if indexPath.row == 0 {
+            navigationController?.pushViewController(CanvasController(), animated: true)
+        }
+    }
 }
 
 extension DrawingsViewController: CustomLayoutDelegate {
     func collectionView(_ collectionView: UICollectionView, sizeForViewAtIndexPath indexPath: IndexPath) -> Int {
-        if indexPath.row % 12 == 3 || indexPath.row % 12 == 10
-        {
+        if indexPath.row % 12 == 3 || indexPath.row % 12 == 10 {
             return 2
         }
         return 1

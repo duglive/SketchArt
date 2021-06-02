@@ -8,10 +8,12 @@
 import UIKit
 
 final class PictureCell: UICollectionViewCell {
-    static let id = "picCell"
+    static let id = String(describing: self)
     
     private lazy var label: UILabel = {
         let label = UILabel()
+        label.numberOfLines = 0
+        label.backgroundColor = UIColor.init(red: 255, green: 255, blue: 255, alpha: 0.3)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -27,13 +29,19 @@ final class PictureCell: UICollectionViewCell {
     
     func setupView() {
         contentView.addSubview(label)
-        label.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
-        label.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
         
-        label.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 40).isActive = true
+        NSLayoutConstraint.activate([
+            label.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 5),
+            label.rightAnchor.constraint(lessThanOrEqualTo: contentView.rightAnchor, constant: -5),
+            label.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5)
+        ])
     }
     
     func config(with index: IndexPath) {
-        label.text = "\(index.row)"
+        if index.row == 0 {
+            label.text = "Новый рисунок"
+        } else {
+            label.text = "\(index.row)"
+        }
     }
 }
