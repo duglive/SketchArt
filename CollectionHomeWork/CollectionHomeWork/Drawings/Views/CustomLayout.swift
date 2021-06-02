@@ -15,7 +15,7 @@ protocol CustomLayoutDelegate: AnyObject {
 
 final class CustomLayout: UICollectionViewLayout {
     weak var delegate: CustomLayoutDelegate!
-    fileprivate var cellPadding: CGFloat = 2
+    fileprivate var cellPadding: CGFloat = 1
 
      fileprivate var cache = [UICollectionViewLayoutAttributes]()
 

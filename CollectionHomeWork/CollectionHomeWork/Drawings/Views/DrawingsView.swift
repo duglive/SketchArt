@@ -15,12 +15,12 @@ final class DrawingsView: UIView {
         cv.translatesAutoresizingMaskIntoConstraints = false
         cv.delegate = self
         cv.dataSource = self
-        cv.backgroundColor = .orange
+        cv.backgroundColor = .white
         cv.register(PictureCell.self, forCellWithReuseIdentifier: PictureCell.id)
         return cv
     }()
     
-    weak var delegate: DrawingsViewDelegate?
+    weak var delegate: DrawingsViewDelegate!
 }
 
 extension DrawingsView: DrawingsViewProtocol {
@@ -40,29 +40,24 @@ extension DrawingsView: UICollectionViewDelegate {}
 
 extension DrawingsView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 50
+        return delegate.picturesCount()
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PictureCell.id, for: indexPath) as! PictureCell
-        cell.config(with: indexPath)
         
-        if indexPath.row % 4 == 0 {
-            cell.backgroundColor = .blue
-        } else if indexPath.row % 4 == 1 {
-            cell.backgroundColor = .red
-        } else if indexPath.row % 4 == 2 {
-            cell.backgroundColor = .green
-        } else {
-            cell.backgroundColor = .cyan
+        if indexPath.row == 0 {
+            cell.configView(with: "New drawing")
+            return cell
         }
+        cell.configView(with: delegate.picture(at: indexPath))
         
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.row == 0 {
-            delegate?.newDrawing()
+            delegate.newDrawing()
         }
     }
 }

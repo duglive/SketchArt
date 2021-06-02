@@ -18,30 +18,62 @@ final class PictureCell: UICollectionViewCell {
         return label
     }()
     
+    private lazy var imageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setupView()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setupView() {
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        label.text = ""
+        imageView.image = nil
+    }
+}
+
+extension PictureCell {
+    func configView(with text: String) {
         contentView.addSubview(label)
-        
+        contentView.backgroundColor = .systemBlue
         NSLayoutConstraint.activate([
             label.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 5),
             label.rightAnchor.constraint(lessThanOrEqualTo: contentView.rightAnchor, constant: -5),
             label.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5)
         ])
+        
+        contentView.addSubview(imageView)
+        NSLayoutConstraint.activate([
+            imageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            imageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            imageView.widthAnchor.constraint(equalToConstant: 15),
+            imageView.heightAnchor.constraint(equalToConstant: 15)
+        ])
+        
+        imageView.tintColor = .black
+        imageView.image = UIImage(systemName: "plus")
+        
+        label.text = text
     }
     
-    func config(with index: IndexPath) {
-        if index.row == 0 {
-            label.text = "Новый рисунок"
-        } else {
-            label.text = "\(index.row)"
-        }
+    func configView(with model: PictureModel) {
+        contentView.addSubview(imageView)
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
+        imageView.image = model.image
+        
+        NSLayoutConstraint.activate([
+            imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            imageView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            imageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+        ])
     }
 }

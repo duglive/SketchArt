@@ -9,6 +9,8 @@ import Foundation
 
 protocol DrawingsViewDelegate: AnyObject {
     func newDrawing()
+    func picturesCount() -> Int
+    func picture(at index: IndexPath) -> PictureModel
 }
 
 protocol DrawingsViewProtocol: AnyObject {

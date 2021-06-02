@@ -7,11 +7,15 @@
 
 import UIKit
 
-class DrawingsViewController: UIViewController {
+final class DrawingsViewController: UIViewController {
     private var myView: DrawingsViewProtocol
+    private(set) var pictures: [PictureModel]
     
     init(with view: DrawingsViewProtocol) {
         self.myView = view
+        pictures = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].map { value in
+            return PictureModel(with: UIImage(named: "\(value)")!)
+        }
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -30,6 +34,14 @@ class DrawingsViewController: UIViewController {
 }
 
 extension DrawingsViewController: DrawingsViewDelegate {
+    func picturesCount() -> Int {
+        pictures.count + 1
+    }
+    
+    func picture(at index: IndexPath) -> PictureModel {
+        pictures[index.row - 1]
+    }
+    
     func newDrawing() {
         navigationController?.pushViewController(CanvasController(), animated: true)
     }
