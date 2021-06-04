@@ -13,6 +13,7 @@ final class DrawingsViewController: UIViewController {
     
     init(with view: DrawingsViewProtocol) {
         self.myView = view
+        
         pictures = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 ,24].map { PictureModel(with: UIImage(named: "\($0)")!)
         }
         
@@ -30,11 +31,11 @@ final class DrawingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         myView.setupView()
+        myView.setupAdditinalMenu()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        myView.setupAdditinalMenu()
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -43,6 +44,16 @@ final class DrawingsViewController: UIViewController {
 }
 
 extension DrawingsViewController: DrawingsViewDelegate {
+    func didTapNewDrawingButton() {
+        newDrawing()
+    }
+    
+    func didTap(at index: IndexPath) {
+        if index.row == 0 {
+            didTapNewDrawingButton()
+        }
+    }
+    
     func picturesCount() -> Int {
         pictures.count
     }

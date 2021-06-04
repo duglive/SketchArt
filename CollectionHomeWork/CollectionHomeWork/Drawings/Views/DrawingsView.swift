@@ -22,7 +22,6 @@ final class DrawingsView: UIView {
     
     private lazy var additinalMenu: AdditinalMenuView = {
         let view = AdditinalMenuView()
-        view.backgroundColor = .cyan
         return view
     }()
     
@@ -42,6 +41,10 @@ extension DrawingsView: DrawingsViewProtocol {
     func setupView() {
         addSubview(collectionView)
         addSubview(additinalMenu)
+        additinalMenu.buttonTapped = { [weak self] in
+            self?.delegate.didTapNewDrawingButton()
+        }
+        additinalMenu.set(text: "You have \(delegate.picturesCount() - 1) drawings")
         
         NSLayoutConstraint.activate([
             collectionView.topAnchor.constraint(equalTo: topAnchor),
@@ -85,9 +88,7 @@ extension DrawingsView: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if indexPath.row == 0 {
-            delegate.newDrawing()
-        }
+        delegate.didTap(at: indexPath)
     }
 }
 

@@ -13,6 +13,8 @@ protocol DrawingsViewDelegate: AnyObject {
     func picture(at index: IndexPath) -> PictureModel
     func firstCellisHidden()
     func firstCellisntHidden()
+    func didTap(at index: IndexPath)
+    func didTapNewDrawingButton()
 }
 
 protocol DrawingsViewProtocol: AnyObject {
