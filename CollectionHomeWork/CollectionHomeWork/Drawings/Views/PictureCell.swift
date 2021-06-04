@@ -10,38 +10,41 @@ import UIKit
 final class PictureCell: UICollectionViewCell {
     static let id = String(describing: self)
     
-    private lazy var label: UILabel = {
-        let label = UILabel()
-        label.numberOfLines = 0
-        label.backgroundColor = UIColor.init(red: 255, green: 255, blue: 255, alpha: 0.3)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
+    private lazy var imageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+    
+    private lazy var imageViewConstraints1: [NSLayoutConstraint] = {
+        return [
+            imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            imageView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            imageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+        ]
     }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setupView()
+        contentView.addSubview(imageView)
+        NSLayoutConstraint.activate(imageViewConstraints1)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setupView() {
-        contentView.addSubview(label)
-        
-        NSLayoutConstraint.activate([
-            label.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 5),
-            label.rightAnchor.constraint(lessThanOrEqualTo: contentView.rightAnchor, constant: -5),
-            label.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5)
-        ])
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        imageView.image = nil
     }
-    
-    func config(with index: IndexPath) {
-        if index.row == 0 {
-            label.text = "Новый рисунок"
-        } else {
-            label.text = "\(index.row)"
-        }
+}
+
+extension PictureCell {
+    func configView(with model: PictureModel) {
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
+        imageView.image = model.image
     }
 }
