@@ -14,20 +14,23 @@ protocol ToolsViewProtocol {
 protocol ToolsViewDelegate: AnyObject {
     func didSelectTool(at index: IndexPath)
     func item(at index: IndexPath) -> ToolType
+    func itemsCount() -> Int
 }
 
 final class ToolsCollectionView: UIView {
-    weak var delegate: ToolsViewDelegate!
-    
+    weak var delegate: ToolsViewDelegate?
+    var selected: Int = 0
     private lazy var toolsCollection: UICollectionView = {
-        let layout = CaruselLayout()
+        let layout = CaruselLayout(with: self)
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
         cv.register(ToolCell.self, forCellWithReuseIdentifier: ToolCell.id)
-        cv.backgroundColor = .systemTeal
+        cv.backgroundColor = .lightGray
         cv.translatesAutoresizingMaskIntoConstraints = false
         cv.alwaysBounceHorizontal = true
         cv.delegate = self
         cv.dataSource = self
+        cv.decelerationRate = .normal
+        cv.showsHorizontalScrollIndicator = false
         return cv
     }()
     
@@ -54,24 +57,38 @@ final class ToolsCollectionView: UIView {
 
 extension ToolsCollectionView: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 6
+        return delegate?.itemsCount() ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = toolsCollection.dequeueReusableCell(withReuseIdentifier: ToolCell.id, for: indexPath) as! ToolCell
-        let tool = delegate.item(at: indexPath)
+        guard let tool = delegate?.item(at: indexPath) else { return cell }
         cell.configView(with: tool)
+        
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         scrollToItem(at: indexPath)
-        delegate.didSelectTool(at: indexPath)
+        selected = indexPath.row
+        delegate?.didSelectTool(at: indexPath)
     }
 }
 
 extension ToolsCollectionView: ToolsViewProtocol {
     func scrollToItem(at index: IndexPath) {
-        toolsCollection.scrollToItem(at: index, at: .centeredHorizontally, animated: true)
+        toolsCollection.selectItem(at: index, animated: true, scrollPosition: .centeredHorizontally)
+    }
+}
+
+extension ToolsCollectionView: CaruselLayoutDelegate {
+    func setSelected(at indexPath: IndexPath) {
+//        var index = indexPath
+//        guard let delegate = delegate else { return }
+//        if index.row < 0 { index.row = 0 }
+//        let count = delegate.itemsCount()
+//        if index.row > count { index.row = count - 1 }
+//
+//        selected = index.row
     }
 }

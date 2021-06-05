@@ -18,8 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let navigationController = UINavigationController(rootViewController: rootView)
         navigationController.isNavigationBarHidden = true
         
-        #warning("hello fix me")
-        window?.rootViewController = CanvasController()//navigationController
+        window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
         
         let statusBarFrame = UIApplication.shared.statusBarFrame

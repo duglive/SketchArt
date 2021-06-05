@@ -10,12 +10,6 @@ import UIKit
 final class ToolCell: UICollectionViewCell {
     static var id = "ToolCell"
     
-//    private lazy var label: UILabel = {
-//        let label = UILabel()
-//        label.translatesAutoresizingMaskIntoConstraints = false
-//        return label
-//    }()
-    
     private lazy var imageView: UIImageView = {
         let view = UIImageView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -25,7 +19,7 @@ final class ToolCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         contentView.addSubview(imageView)
-        
+        self.layer.cornerRadius = frame.height / 2
         NSLayoutConstraint.activate([
             imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
@@ -47,6 +41,17 @@ final class ToolCell: UICollectionViewCell {
 extension ToolCell {
     func configView(with tool: ToolType) {
         imageView.image = UIImage(named: tool.rawValue)
-        contentView.backgroundColor = .white
+        contentView.backgroundColor = .lightGray
+    }
+}
+
+extension ToolCell
+{
+    override var isSelected: Bool{
+        didSet{
+            UIView.animate(withDuration: 0.1, delay: 0.0, options: .curveEaseOut, animations: {
+                self.transform = self.isSelected ? CGAffineTransform(scaleX: 1.15, y: 1.15) : CGAffineTransform.identity
+            }, completion: nil)
+        }
     }
 }
