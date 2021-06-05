@@ -20,6 +20,9 @@
 		817FCD272668166C00E3FAE2 /* DConsts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817FCD262668166C00E3FAE2 /* DConsts.swift */; };
 		817FCD2E2668213C00E3FAE2 /* AdditinalMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817FCD2D2668213C00E3FAE2 /* AdditinalMenuView.swift */; };
 		817FCD58266ABBF800E3FAE2 /* ToolCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817FCD57266ABBF800E3FAE2 /* ToolCell.swift */; };
+		817FCD61266AC61100E3FAE2 /* CaruselLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817FCD60266AC61100E3FAE2 /* CaruselLayout.swift */; };
+		819F6653266BCB1900DE036A /* ToolType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819F6652266BCB1900DE036A /* ToolType.swift */; };
+		819F6658266BCC0B00DE036A /* ToolsCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819F6657266BCC0B00DE036A /* ToolsCollectionView.swift */; };
 		B72F5545266747AC00645451 /* CanvasController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72F5544266747AC00645451 /* CanvasController.swift */; };
 		B72F554926674B6100645451 /* ColorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72F554826674B6100645451 /* ColorButton.swift */; };
 		B72F554C2667697600645451 /* ColorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72F554B2667697600645451 /* ColorTableViewCell.swift */; };
@@ -43,6 +46,9 @@
 		817FCD262668166C00E3FAE2 /* DConsts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DConsts.swift; sourceTree = "<group>"; };
 		817FCD2D2668213C00E3FAE2 /* AdditinalMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditinalMenuView.swift; sourceTree = "<group>"; };
 		817FCD57266ABBF800E3FAE2 /* ToolCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolCell.swift; sourceTree = "<group>"; };
+		817FCD60266AC61100E3FAE2 /* CaruselLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaruselLayout.swift; sourceTree = "<group>"; };
+		819F6652266BCB1900DE036A /* ToolType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolType.swift; sourceTree = "<group>"; };
+		819F6657266BCC0B00DE036A /* ToolsCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolsCollectionView.swift; sourceTree = "<group>"; };
 		B72F5544266747AC00645451 /* CanvasController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasController.swift; sourceTree = "<group>"; };
 		B72F554826674B6100645451 /* ColorButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorButton.swift; sourceTree = "<group>"; };
 		B72F554B2667697600645451 /* ColorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTableViewCell.swift; sourceTree = "<group>"; };
@@ -108,6 +114,48 @@
 			path = Drawings;
 			sourceTree = "<group>";
 		};
+		817FCD66266AC75400E3FAE2 /* CaruselLayout */ = {
+			isa = PBXGroup;
+			children = (
+				817FCD60266AC61100E3FAE2 /* CaruselLayout.swift */,
+			);
+			path = CaruselLayout;
+			sourceTree = "<group>";
+		};
+		819F664C266BC9DF00DE036A /* Layouts */ = {
+			isa = PBXGroup;
+			children = (
+				813521C32662950F0042C5A3 /* CustomLayout.swift */,
+			);
+			path = Layouts;
+			sourceTree = "<group>";
+		};
+		819F664D266BC9E700DE036A /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				813521CD266542AF0042C5A3 /* PictureCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		819F664F266BCA1B00DE036A /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				B72F554826674B6100645451 /* ColorButton.swift */,
+				B72F554E26677F9D00645451 /* BaseButton.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		819F6650266BCA2B00DE036A /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				B72F554B2667697600645451 /* ColorTableViewCell.swift */,
+				817FCD57266ABBF800E3FAE2 /* ToolCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		B72F55382667444700645451 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -123,9 +171,9 @@
 			isa = PBXGroup;
 			children = (
 				812BD9D326678DDF00B4F6B3 /* DrawingsView.swift */,
-				813521C32662950F0042C5A3 /* CustomLayout.swift */,
-				813521CD266542AF0042C5A3 /* PictureCell.swift */,
 				817FCD2D2668213C00E3FAE2 /* AdditinalMenuView.swift */,
+				819F664C266BC9DF00DE036A /* Layouts */,
+				819F664D266BC9E700DE036A /* Cells */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -141,6 +189,7 @@
 		B72F55402667470900645451 /* Canvas */ = {
 			isa = PBXGroup;
 			children = (
+				819F6652266BCB1900DE036A /* ToolType.swift */,
 				B72F55412667475500645451 /* Models */,
 				B72F55422667476400645451 /* Views */,
 				B72F55432667476C00645451 /* Controllers */,
@@ -158,11 +207,11 @@
 		B72F55422667476400645451 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				B72F554826674B6100645451 /* ColorButton.swift */,
-				B72F554E26677F9D00645451 /* BaseButton.swift */,
-				B72F554B2667697600645451 /* ColorTableViewCell.swift */,
+				819F6657266BCC0B00DE036A /* ToolsCollectionView.swift */,
 				B72F5552266781D400645451 /* ColorTableView.swift */,
-				817FCD57266ABBF800E3FAE2 /* ToolCell.swift */,
+				819F664F266BCA1B00DE036A /* Buttons */,
+				819F6650266BCA2B00DE036A /* Cells */,
+				817FCD66266AC75400E3FAE2 /* CaruselLayout */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -248,10 +297,13 @@
 				812BD9D82667906900B4F6B3 /* Assembly.swift in Sources */,
 				812BD9D426678DDF00B4F6B3 /* DrawingsView.swift in Sources */,
 				B72F554C2667697600645451 /* ColorTableViewCell.swift in Sources */,
+				817FCD61266AC61100E3FAE2 /* CaruselLayout.swift in Sources */,
+				819F6658266BCC0B00DE036A /* ToolsCollectionView.swift in Sources */,
 				817FCD1F2667938100E3FAE2 /* DrawingsProtocols.swift in Sources */,
 				B72F554F26677F9D00645451 /* BaseButton.swift in Sources */,
 				B72F5545266747AC00645451 /* CanvasController.swift in Sources */,
 				817FCD58266ABBF800E3FAE2 /* ToolCell.swift in Sources */,
+				819F6653266BCB1900DE036A /* ToolType.swift in Sources */,
 				813521C42662950F0042C5A3 /* CustomLayout.swift in Sources */,
 				817FCD272668166C00E3FAE2 /* DConsts.swift in Sources */,
 				B72F5553266781D400645451 /* ColorTableView.swift in Sources */,

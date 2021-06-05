@@ -47,7 +47,7 @@ extension AdditinalMenuView {
         NSLayoutConstraint.activate([
             label.centerYAnchor.constraint(equalTo: centerYAnchor),
             label.centerXAnchor.constraint(equalTo: centerXAnchor),
-            label.widthAnchor.constraint(equalTo: widthAnchor, constant: -100),
+            //label.widthAnchor.constraint(equalTo: widthAnchor, constant: -100),
 
             button.topAnchor.constraint(equalTo: topAnchor),
             button.trailingAnchor.constraint(equalTo: trailingAnchor),
