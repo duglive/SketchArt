@@ -7,21 +7,35 @@
 
 import UIKit
 
-class CanvasController : UIViewController {
+final class CanvasController : UIViewController {
     
     var tableView = ColorTableView()
     let colorButton = ColorButton()
     
+    private lazy var toolsCollectionView: ToolsCollectionView = {
+        let view = ToolsCollectionView(with: self)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    var currentSelectedTool: ToolType = ToolType.line
+    let tools = [ToolType.square, ToolType.roundedSquare, ToolType.ellipse, ToolType.line, ToolType.triangle, ToolType.straightLine]
     let colorArr = [#colorLiteral(red: 0.1019607857, green: 0.2784313858, blue: 0.400000006, alpha: 1), #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1), #colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1), #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1), .red, #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1), #colorLiteral(red: 0.1960784346, green: 0.3411764801, blue: 0.1019607857, alpha: 1), #colorLiteral(red: 0.9686274529, green: 0.78039217, blue: 0.3450980484, alpha: 1), #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1), #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1), #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1), #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1), #colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1), #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1), #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1)]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setupView()
+    }
+}
+
+extension CanvasController {
+    func setupView() {
         setBackgroundColor()
         setColorButton()
         setDoneButton()
         setUndoButton()
         setTableView()
+        setupToolCollectionView()
     }
     
     func setBackgroundColor() {
@@ -53,6 +67,23 @@ class CanvasController : UIViewController {
         tableView.dataSource = self
         tableView.pin(view: colorButton)
     }
+    
+    func setupToolCollectionView() {
+        view.addSubview(toolsCollectionView)
+        NSLayoutConstraint.activate([
+            toolsCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            toolsCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            toolsCollectionView.heightAnchor.constraint(equalToConstant: 60),
+            toolsCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
+        toolsCollectionView.setupToolCollectionView()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        toolsCollectionView.scrollToItem(at: IndexPath(row: tools.count / 2, section: 0))
+    }
 }
 
 extension CanvasController : UITableViewDelegate, UITableViewDataSource {
@@ -74,11 +105,9 @@ extension CanvasController : UITableViewDelegate, UITableViewDataSource {
         colorButton.backgroundColor = colorArr[indexPath.row]
         tableView.isHidden = true
     }
-    
 }
 
 extension CanvasController {
-    
     @objc
     func showColors() {
         tableView.isHidden = tableView.isHidden ? false : true
@@ -92,5 +121,15 @@ extension CanvasController {
     @objc
     func undoAction() {
         
+    }
+}
+
+extension CanvasController: ToolsViewDelegate {
+    func didSelectTool(at index: IndexPath) {
+        currentSelectedTool = tools[index.row]
+    }
+    
+    func item(at index: IndexPath) -> ToolType {
+        tools[index.row]
     }
 }
