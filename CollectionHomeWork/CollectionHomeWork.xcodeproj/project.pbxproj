@@ -28,6 +28,7 @@
 		B72F554C2667697600645451 /* ColorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72F554B2667697600645451 /* ColorTableViewCell.swift */; };
 		B72F554F26677F9D00645451 /* BaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72F554E26677F9D00645451 /* BaseButton.swift */; };
 		B72F5553266781D400645451 /* ColorTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72F5552266781D400645451 /* ColorTableView.swift */; };
+		B7A413E3266BF4D20041154B /* DrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A413E2266BF4D20041154B /* DrawView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		B72F554B2667697600645451 /* ColorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTableViewCell.swift; sourceTree = "<group>"; };
 		B72F554E26677F9D00645451 /* BaseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseButton.swift; sourceTree = "<group>"; };
 		B72F5552266781D400645451 /* ColorTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTableView.swift; sourceTree = "<group>"; };
+		B7A413E2266BF4D20041154B /* DrawView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,7 +191,6 @@
 		B72F55402667470900645451 /* Canvas */ = {
 			isa = PBXGroup;
 			children = (
-				819F6652266BCB1900DE036A /* ToolType.swift */,
 				B72F55412667475500645451 /* Models */,
 				B72F55422667476400645451 /* Views */,
 				B72F55432667476C00645451 /* Controllers */,
@@ -200,6 +201,7 @@
 		B72F55412667475500645451 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				819F6652266BCB1900DE036A /* ToolType.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -209,6 +211,7 @@
 			children = (
 				819F6657266BCC0B00DE036A /* ToolsCollectionView.swift */,
 				B72F5552266781D400645451 /* ColorTableView.swift */,
+				B7A413E2266BF4D20041154B /* DrawView.swift */,
 				819F664F266BCA1B00DE036A /* Buttons */,
 				819F6650266BCA2B00DE036A /* Cells */,
 				817FCD66266AC75400E3FAE2 /* CaruselLayout */,
@@ -299,6 +302,7 @@
 				B72F554C2667697600645451 /* ColorTableViewCell.swift in Sources */,
 				817FCD61266AC61100E3FAE2 /* CaruselLayout.swift in Sources */,
 				819F6658266BCC0B00DE036A /* ToolsCollectionView.swift in Sources */,
+				B7A413E3266BF4D20041154B /* DrawView.swift in Sources */,
 				817FCD1F2667938100E3FAE2 /* DrawingsProtocols.swift in Sources */,
 				B72F554F26677F9D00645451 /* BaseButton.swift in Sources */,
 				B72F5545266747AC00645451 /* CanvasController.swift in Sources */,
