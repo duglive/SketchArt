@@ -12,6 +12,7 @@ final class AdditinalMenuView: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
+        label.textColor = .black
         label.textAlignment = .center
         return label
     }()

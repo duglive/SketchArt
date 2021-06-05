@@ -8,7 +8,6 @@
 import UIKit
 
 class DrawView: UIView {
-    
     var startPoint = CGPoint()
     var endPoint = CGPoint()
     

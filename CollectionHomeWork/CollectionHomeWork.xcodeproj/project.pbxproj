@@ -193,10 +193,10 @@
 		B72F55402667470900645451 /* Canvas */ = {
 			isa = PBXGroup;
 			children = (
+				8122902D266C07A600FC8308 /* ScrollViewExtension.swift */,
 				B72F55412667475500645451 /* Models */,
 				B72F55422667476400645451 /* Views */,
 				B72F55432667476C00645451 /* Controllers */,
-				8122902D266C07A600FC8308 /* ScrollViewExtension.swift */,
 			);
 			path = Canvas;
 			sourceTree = "<group>";

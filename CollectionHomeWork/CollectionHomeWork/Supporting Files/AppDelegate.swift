@@ -21,10 +21,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
         
-        let statusBarFrame = UIApplication.shared.statusBarFrame
-        let statusBarBackgroundView = UIView(frame: statusBarFrame)
-        window?.addSubview(statusBarBackgroundView)
-        statusBarBackgroundView.backgroundColor = .white
+        if let statusBarFrame = window?.windowScene?.statusBarManager?.statusBarFrame {
+            let statusBarBackgroundView = UIView(frame: statusBarFrame)
+            window?.addSubview(statusBarBackgroundView)
+            statusBarBackgroundView.backgroundColor = .white
+        }
+
         return true
     }
 
