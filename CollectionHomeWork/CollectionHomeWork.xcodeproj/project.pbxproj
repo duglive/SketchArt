@@ -20,6 +20,7 @@
 		817FCD272668166C00E3FAE2 /* DConsts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817FCD262668166C00E3FAE2 /* DConsts.swift */; };
 		817FCD2E2668213C00E3FAE2 /* AdditinalMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817FCD2D2668213C00E3FAE2 /* AdditinalMenuView.swift */; };
 		817FCD58266ABBF800E3FAE2 /* ToolCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817FCD57266ABBF800E3FAE2 /* ToolCell.swift */; };
+		847C0981266BDFFE00773E53 /* DrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847C0980266BDFFE00773E53 /* DrawView.swift */; };
 		B72F5545266747AC00645451 /* CanvasController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72F5544266747AC00645451 /* CanvasController.swift */; };
 		B72F554926674B6100645451 /* ColorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72F554826674B6100645451 /* ColorButton.swift */; };
 		B72F554C2667697600645451 /* ColorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72F554B2667697600645451 /* ColorTableViewCell.swift */; };
@@ -43,6 +44,7 @@
 		817FCD262668166C00E3FAE2 /* DConsts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DConsts.swift; sourceTree = "<group>"; };
 		817FCD2D2668213C00E3FAE2 /* AdditinalMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditinalMenuView.swift; sourceTree = "<group>"; };
 		817FCD57266ABBF800E3FAE2 /* ToolCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolCell.swift; sourceTree = "<group>"; };
+		847C0980266BDFFE00773E53 /* DrawView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawView.swift; sourceTree = "<group>"; };
 		B72F5544266747AC00645451 /* CanvasController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasController.swift; sourceTree = "<group>"; };
 		B72F554826674B6100645451 /* ColorButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorButton.swift; sourceTree = "<group>"; };
 		B72F554B2667697600645451 /* ColorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTableViewCell.swift; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 				B72F554B2667697600645451 /* ColorTableViewCell.swift */,
 				B72F5552266781D400645451 /* ColorTableView.swift */,
 				817FCD57266ABBF800E3FAE2 /* ToolCell.swift */,
+				847C0980266BDFFE00773E53 /* DrawView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -253,6 +256,7 @@
 				B72F5545266747AC00645451 /* CanvasController.swift in Sources */,
 				817FCD58266ABBF800E3FAE2 /* ToolCell.swift in Sources */,
 				813521C42662950F0042C5A3 /* CustomLayout.swift in Sources */,
+				847C0981266BDFFE00773E53 /* DrawView.swift in Sources */,
 				817FCD272668166C00E3FAE2 /* DConsts.swift in Sources */,
 				B72F5553266781D400645451 /* ColorTableView.swift in Sources */,
 				B72F554926674B6100645451 /* ColorButton.swift in Sources */,
