@@ -26,6 +26,11 @@ final class CanvasController : UIViewController {
         super.viewDidLoad()
         setupView()
     }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        toolsCollectionView.scrollToItem(at: IndexPath(row: tools.count / 2, section: 0))
+    }
 }
 
 extension CanvasController {
@@ -74,16 +79,11 @@ extension CanvasController {
             toolsCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             toolsCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             toolsCollectionView.heightAnchor.constraint(equalToConstant: 60),
-            toolsCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            toolsCollectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
         toolsCollectionView.setupToolCollectionView()
     }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        
-        toolsCollectionView.scrollToItem(at: IndexPath(row: tools.count / 2, section: 0))
-    }
+
 }
 
 extension CanvasController : UITableViewDelegate, UITableViewDataSource {
@@ -131,5 +131,9 @@ extension CanvasController: ToolsViewDelegate {
     
     func item(at index: IndexPath) -> ToolType {
         tools[index.row]
+    }
+    
+    func itemsCount() -> Int {
+        tools.count
     }
 }
