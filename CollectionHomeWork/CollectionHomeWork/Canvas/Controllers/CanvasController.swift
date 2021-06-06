@@ -75,7 +75,7 @@ extension CanvasController {
         let undoButton = BaseButton(imageName: "arrow.uturn.backward.square")
         undoButton.pin(view: self.view)
         undoButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -72).isActive = true
-        undoButton.addTarget(self, action: #selector(undoAction), for: .touchUpInside)
+        undoButton.addTarget(self, action: #selector(deleteLast), for: .touchUpInside)
     }
     
     func setTableView() {
@@ -131,8 +131,19 @@ extension CanvasController {
     }
     
     @objc
-    func undoAction() {
-        
+    func deleteLast() {
+        if let a = drawView.arrCounterOfFigurs.last {
+            if a > 1 {
+                for _ in 0..<a {
+                    drawView.layer.sublayers?.removeLast()
+                }
+            } else {
+                drawView.layer.sublayers?.removeLast()
+            }
+        }
+        if drawView.arrCounterOfFigurs.count > 0 {
+            drawView.arrCounterOfFigurs.removeLast()
+        }
     }
     
     @objc
@@ -141,13 +152,42 @@ extension CanvasController {
         
         if gestureRecognizer.state == .began {
             drawView.startPoint = gestureRecognizer.location(in: drawView)
+            if selectedTool == .line {
+                drawView.lineCounter += 1
+            }
         }
         
         if gestureRecognizer.state == .changed {
-            if selectedTool == .line {
-                let currentPoint = gestureRecognizer.location(in: drawView)
+//            if selectedTool == .line {
+//                let currentPoint = gestureRecognizer.location(in: drawView)
+//                drawView.drawLine(drawView.startPoint, currentPoint)
+//                drawView.startPoint = currentPoint
+//            }
+            
+            
+            
+            let currentPoint = gestureRecognizer.location(in: drawView)
+            
+            switch selectedTool {
+            case .ellipse:
+                drawView.drawElipse(drawView.startPoint, drawView.endPoint)
+                drawView.endPoint = currentPoint
+            case .square:
+                drawView.drawSquare(drawView.startPoint, drawView.endPoint)
+                drawView.endPoint = currentPoint
+            case .triangle:
+                drawView.drawTriangle(drawView.startPoint, drawView.endPoint)
+                drawView.endPoint = currentPoint
+            case .roundedSquare:
+                drawView.drawRoundedSquare(drawView.startPoint, drawView.endPoint)
+                drawView.endPoint = currentPoint
+            case .line:
                 drawView.drawLine(drawView.startPoint, currentPoint)
                 drawView.startPoint = currentPoint
+                drawView.lineCounter += 1
+            case .straightLine:
+                drawView.drawStraightLine(drawView.startPoint, drawView.endPoint)
+                drawView.endPoint = currentPoint
             }
         }
         
@@ -157,16 +197,23 @@ extension CanvasController {
             switch selectedTool {
             case .ellipse:
                 drawView.drawElipse(drawView.startPoint, drawView.endPoint)
+                drawView.arrCounterOfFigurs.append(1)
             case .square:
                 drawView.drawSquare(drawView.startPoint, drawView.endPoint)
+                drawView.arrCounterOfFigurs.append(1)
             case .triangle:
                 drawView.drawTriangle(drawView.startPoint, drawView.endPoint)
+                drawView.arrCounterOfFigurs.append(1)
             case .roundedSquare:
                 drawView.drawRoundedSquare(drawView.startPoint, drawView.endPoint)
+                drawView.arrCounterOfFigurs.append(1)
             case .line:
                 drawView.drawLine(drawView.startPoint, drawView.startPoint)
+                drawView.arrCounterOfFigurs.append(drawView.lineCounter)
+                drawView.lineCounter = 0
             case .straightLine:
                 drawView.drawStraightLine(drawView.startPoint, drawView.endPoint)
+                drawView.arrCounterOfFigurs.append(1)
             }
         }
     }

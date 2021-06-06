@@ -11,6 +11,9 @@ class DrawView: UIView {
     var startPoint = CGPoint()
     var endPoint = CGPoint()
     
+    var arrCounterOfFigurs = [Int]()
+    var lineCounter = 0
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
@@ -27,6 +30,7 @@ class DrawView: UIView {
         
         let ab = CGFloat(sqrt(Double(((b.x - a.x) * (b.x - a.x)) + ((b.x - a.x) * (b.x - a.x)))))
         let path = UIBezierPath(arcCenter: start, radius: ab, startAngle: 0, endAngle: CGFloat.pi * 2, clockwise: true)
+        removeSublayers()
         self.layer.addSublayer(setShapeLayer(path))
     }
     
@@ -42,7 +46,7 @@ class DrawView: UIView {
         path.addLine(to: CGPoint(x: start.x + ab, y: start.y + ab))
         path.addLine(to: CGPoint(x: start.x, y: start.y + ab))
         path.addLine(to: start)
-        
+        removeSublayers()
         self.layer.addSublayer(setShapeLayer(path))
     }
     
@@ -57,7 +61,7 @@ class DrawView: UIView {
         path.addLine(to: CGPoint(x: start.x + ab/2, y: start.y))
         path.addLine(to: CGPoint(x: start.x + ab, y: start.y + ab))
         path.close()
-        
+        removeSublayers()
         self.layer.addSublayer(setShapeLayer(path))
     }
 
@@ -68,7 +72,7 @@ class DrawView: UIView {
         let ab = CGFloat(sqrt(Double(((b.x - a.x) * (b.x - a.x)) + ((b.x - a.x) * (b.x - a.x)))))
         
         let path = UIBezierPath(roundedRect: CGRect(x: a.x, y: a.y, width: ab, height: ab), cornerRadius: ab/4)
-
+        removeSublayers()
         self.layer.addSublayer(setShapeLayer(path))
     }
     
@@ -85,17 +89,24 @@ class DrawView: UIView {
         let path = UIBezierPath()
         path.move(to: start)
         path.addLine(to: end)
-
+        removeSublayers()
         self.layer.addSublayer(setShapeLayer(path))
     }
 
-    func setShapeLayer(_ path: UIBezierPath) -> CAShapeLayer {
+    private func setShapeLayer(_ path: UIBezierPath) -> CAShapeLayer {
         let shapeLayer = CAShapeLayer()
         shapeLayer.path = path.cgPath
         shapeLayer.strokeColor = UIColor.black.cgColor
         shapeLayer.fillColor = UIColor.clear.cgColor
         shapeLayer.lineWidth = 3.0
         return shapeLayer
+    }
+    
+    private func removeSublayers() {
+        if let countSublayers = self.layer.sublayers?.count {
+            if countSublayers > arrCounterOfFigurs.reduce(0, +) {
+                self.layer.sublayers?.removeLast() }
+        }
     }
     
     required init?(coder: NSCoder) {
