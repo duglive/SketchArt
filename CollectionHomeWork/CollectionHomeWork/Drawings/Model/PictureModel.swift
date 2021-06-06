@@ -15,4 +15,8 @@ final class PictureModel {
         self.image = image
         originalImage = image
     }
+    
+    func set(_ image: UIImage) {
+        self.image = image
+    }
 }

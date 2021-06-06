@@ -16,11 +16,14 @@ final class DetailViewController: UIViewController {
         return view
     }()
     
+    private var index: IndexPath!
     private var pictureModel: PictureModel!
     
-    init(with pictureModel: PictureModel) {
+    init(with pictureModel: PictureModel, at index: IndexPath) {
         super.init(nibName: nil, bundle: nil)
+        self.pictureModel = pictureModel
         imageView.image =  pictureModel.image
+        self.index = index
     }
     
     required init?(coder: NSCoder) {
@@ -53,6 +56,6 @@ extension DetailViewController {
     }
     
     @objc func editTapped() {
-        navigationController?.pushViewController(CanvasController(), animated: true)
+        navigationController?.pushViewController(CanvasController(pictureModel.image, index), animated: true)
     }
 }

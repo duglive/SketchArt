@@ -22,7 +22,6 @@ class DrawView: UIView {
     
     convenience init() {
         self.init(frame: .zero)
-        
         translatesAutoresizingMaskIntoConstraints = false
     }
     
@@ -127,4 +126,16 @@ class DrawView: UIView {
         ])
     }
 
+    func setupImage(_ image: UIImage) {
+        let imageView = UIImageView(image: image)
+        addSubview(imageView)
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFit
+        NSLayoutConstraint.activate([
+            imageView.topAnchor.constraint(equalTo: topAnchor),
+            imageView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            imageView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            imageView.bottomAnchor.constraint(equalTo: bottomAnchor)
+        ])
+    }
 }

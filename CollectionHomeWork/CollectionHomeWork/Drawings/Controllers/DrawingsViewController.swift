@@ -42,7 +42,7 @@ final class DrawingsViewController: UIViewController {
 
 extension DrawingsViewController: DrawingsViewDelegate {
     func selected(at index: IndexPath) {
-        navigationController?.pushViewController(DetailViewController(with: pictures[index.row]), animated: true)
+        navigationController?.pushViewController(DetailViewController(with: pictures[index.row], at: index), animated: true)
     }
     
     func didTapNewDrawingButton() {
