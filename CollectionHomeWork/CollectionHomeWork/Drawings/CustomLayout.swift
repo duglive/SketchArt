@@ -15,7 +15,7 @@ protocol CustomLayoutDelegate: AnyObject {
 
 final class CustomLayout: UICollectionViewLayout {
     weak var delegate: CustomLayoutDelegate!
-    fileprivate var cellPadding: CGFloat = 1
+    fileprivate var cellPadding: CGFloat = 2
 
      fileprivate var cache = [UICollectionViewLayoutAttributes]()
 
@@ -47,6 +47,7 @@ final class CustomLayout: UICollectionViewLayout {
 
          var i = 0
          for columnHeight in columsHeights {
+             debugPrint("Column Height: \(columnHeight) index: \(i)")
              if(Float(columnHeight) < shortestValue)
              {
                  shortestValue = Float(columnHeight)
@@ -54,6 +55,7 @@ final class CustomLayout: UICollectionViewLayout {
              }
              i += 1
          }
+         debugPrint("shortest Column index: \(retVal)")
          return retVal
      }
 
@@ -63,6 +65,7 @@ final class CustomLayout: UICollectionViewLayout {
 
          var i = 0
          for columnHeight in columsHeights {
+             debugPrint("Column Height: \(columnHeight) index: \(i)")
              if(Float(columnHeight) > largestValue)
              {
                  largestValue = Float(columnHeight)
@@ -70,6 +73,7 @@ final class CustomLayout: UICollectionViewLayout {
              }
              i += 1
          }
+         debugPrint("shortest Column index: \(retVal)")
          return retVal
      }
 
@@ -140,6 +144,7 @@ final class CustomLayout: UICollectionViewLayout {
                          //space that will remaing in blank, this must be 0 if its ok
                          let remainder = (newValue - currValue) - CGFloat(viewSize) * blockWidth
                          if(remainder > 0) {
+                             debugPrint("Its bigger remainder is \(remainder)")
                              //number of spaces to fill
                              let spacesTofillInColumn = Int(remainder/blockWidth)
                              //we need to add those spaces as avaiableSpaces
@@ -161,6 +166,8 @@ final class CustomLayout: UICollectionViewLayout {
                      self.avaiableSpaces.remove(at: 0)
                  }
              }
+
+             print(width)
 
              let frame = CGRect(x: xOffset, y: yOffset, width: width, height: height)
              let insetFrame = frame.insetBy(dx: cellPadding, dy: cellPadding)
