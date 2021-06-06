@@ -20,14 +20,18 @@ final class Assembly {
     
     static func pushDrawingcVC() {
         let delegate = UIApplication.shared.delegate?.window!
-        delegate?.rootViewController = UINavigationController(rootViewController: Assembly.createDrawingsModule())
-        delegate?.makeKeyAndVisible()
+        guard let window = delegate else { return }
         
-        if let statusBarFrame = delegate!.windowScene?.statusBarManager?.statusBarFrame {
-            DConstants.statusBarHeight = statusBarFrame.height
-            let statusBarBackgroundView = UIView(frame: statusBarFrame)
-            delegate!.addSubview(statusBarBackgroundView)
-            statusBarBackgroundView.backgroundColor = .white
-        }
+        window.rootViewController = UINavigationController(rootViewController: Assembly.createDrawingsModule())
+        
+        UIView.transition(with: window, duration: 0.5, options: .transitionFlipFromLeft, animations: {}, completion:
+        { completed in
+            if let statusBarFrame = window.windowScene?.statusBarManager?.statusBarFrame {
+                DConstants.statusBarHeight = statusBarFrame.height
+                let statusBarBackgroundView = UIView(frame: statusBarFrame)
+                window.addSubview(statusBarBackgroundView)
+                statusBarBackgroundView.backgroundColor = .white
+            }
+        })
     }
 }
