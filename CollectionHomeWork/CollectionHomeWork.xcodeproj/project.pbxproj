@@ -102,6 +102,7 @@
 		813521A9266293340042C5A3 /* CollectionHomeWork */ = {
 			isa = PBXGroup;
 			children = (
+				B7772266266D38E700D44AA8 /* Extensions */,
 				813521CB2662A6CD0042C5A3 /* Drawings */,
 				B72F55402667470900645451 /* Canvas */,
 				B72F55382667444700645451 /* Supporting Files */,
@@ -198,8 +199,6 @@
 		B72F55402667470900645451 /* Canvas */ = {
 			isa = PBXGroup;
 			children = (
-				8122902D266C07A600FC8308 /* ScrollViewExtension.swift */,
-				B7772262266D1E1A00D44AA8 /* UIView+Ext.swift */,
 				B72F55412667475500645451 /* Models */,
 				B72F55422667476400645451 /* Views */,
 				B72F55432667476C00645451 /* Controllers */,
@@ -234,6 +233,15 @@
 				B72F5544266747AC00645451 /* CanvasController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		B7772266266D38E700D44AA8 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				8122902D266C07A600FC8308 /* ScrollViewExtension.swift */,
+				B7772262266D1E1A00D44AA8 /* UIView+Ext.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

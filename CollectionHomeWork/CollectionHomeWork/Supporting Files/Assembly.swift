@@ -22,5 +22,12 @@ final class Assembly {
         let delegate = UIApplication.shared.delegate?.window!
         delegate?.rootViewController = UINavigationController(rootViewController: Assembly.createDrawingsModule())
         delegate?.makeKeyAndVisible()
+        
+        if let statusBarFrame = delegate!.windowScene?.statusBarManager?.statusBarFrame {
+            DConstants.statusBarHeight = statusBarFrame.height
+            let statusBarBackgroundView = UIView(frame: statusBarFrame)
+            delegate!.addSubview(statusBarBackgroundView)
+            statusBarBackgroundView.backgroundColor = .white
+        }
     }
 }
