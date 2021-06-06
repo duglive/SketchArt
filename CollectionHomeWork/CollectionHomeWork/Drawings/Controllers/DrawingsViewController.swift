@@ -38,10 +38,6 @@ final class DrawingsViewController: UIViewController {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = true
     }
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .darkContent
-    }
 }
 
 extension DrawingsViewController: DrawingsViewDelegate {

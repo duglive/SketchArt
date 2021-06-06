@@ -43,7 +43,7 @@
 		813521AE266293340042C5A3 /* DrawingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingsViewController.swift; sourceTree = "<group>"; };
 		813521B3266293390042C5A3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		813521B6266293390042C5A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		813521B8266293390042C5A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		813521B8266293390042C5A3 /*  .plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = " .plist"; sourceTree = "<group>"; };
 		813521C32662950F0042C5A3 /* CustomLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLayout.swift; sourceTree = "<group>"; };
 		813521CD266542AF0042C5A3 /* PictureCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureCell.swift; sourceTree = "<group>"; };
 		814EBB9C266CE6FF00A215DF /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
@@ -103,7 +103,7 @@
 				813521CB2662A6CD0042C5A3 /* Drawings */,
 				B72F55402667470900645451 /* Canvas */,
 				B72F55382667444700645451 /* Supporting Files */,
-				813521B8266293390042C5A3 /* Info.plist */,
+				813521B8266293390042C5A3 /*  .plist */,
 			);
 			path = CollectionHomeWork;
 			sourceTree = "<group>";
