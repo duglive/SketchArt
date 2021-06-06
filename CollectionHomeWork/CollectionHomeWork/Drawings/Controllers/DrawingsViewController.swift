@@ -56,6 +56,7 @@ extension DrawingsViewController: DrawingsViewDelegate {
     func didTap(at index: IndexPath) {
         if index.row == 0 {
             didTapNewDrawingButton()
+            return
         }
         selected(at: index)
     }

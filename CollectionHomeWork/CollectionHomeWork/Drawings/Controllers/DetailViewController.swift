@@ -41,7 +41,7 @@ final class DetailViewController: UIViewController {
 extension DetailViewController {
     func setupView() {
         view.addSubview(imageView)
-        
+        navigationController?.navigationBar.barTintColor = .white
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editTapped))
         
         NSLayoutConstraint.activate([
