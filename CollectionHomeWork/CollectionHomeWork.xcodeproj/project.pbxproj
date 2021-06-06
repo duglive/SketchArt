@@ -30,6 +30,7 @@
 		B72F554C2667697600645451 /* ColorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72F554B2667697600645451 /* ColorTableViewCell.swift */; };
 		B72F554F26677F9D00645451 /* BaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72F554E26677F9D00645451 /* BaseButton.swift */; };
 		B72F5553266781D400645451 /* ColorTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72F5552266781D400645451 /* ColorTableView.swift */; };
+		B7772263266D1E1A00D44AA8 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7772262266D1E1A00D44AA8 /* UIView+Ext.swift */; };
 		B7A413E3266BF4D20041154B /* DrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A413E2266BF4D20041154B /* DrawView.swift */; };
 /* End PBXBuildFile section */
 
@@ -59,6 +60,7 @@
 		B72F554B2667697600645451 /* ColorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTableViewCell.swift; sourceTree = "<group>"; };
 		B72F554E26677F9D00645451 /* BaseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseButton.swift; sourceTree = "<group>"; };
 		B72F5552266781D400645451 /* ColorTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTableView.swift; sourceTree = "<group>"; };
+		B7772262266D1E1A00D44AA8 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		B7A413E2266BF4D20041154B /* DrawView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -197,6 +199,7 @@
 			isa = PBXGroup;
 			children = (
 				8122902D266C07A600FC8308 /* ScrollViewExtension.swift */,
+				B7772262266D1E1A00D44AA8 /* UIView+Ext.swift */,
 				B72F55412667475500645451 /* Models */,
 				B72F55422667476400645451 /* Views */,
 				B72F55432667476C00645451 /* Controllers */,
@@ -314,6 +317,7 @@
 				B72F5545266747AC00645451 /* CanvasController.swift in Sources */,
 				817FCD58266ABBF800E3FAE2 /* ToolCell.swift in Sources */,
 				814EBB9D266CE6FF00A215DF /* DetailViewController.swift in Sources */,
+				B7772263266D1E1A00D44AA8 /* UIView+Ext.swift in Sources */,
 				819F6653266BCB1900DE036A /* ToolType.swift in Sources */,
 				813521C42662950F0042C5A3 /* CustomLayout.swift in Sources */,
 				817FCD272668166C00E3FAE2 /* DConstants.swift in Sources */,
