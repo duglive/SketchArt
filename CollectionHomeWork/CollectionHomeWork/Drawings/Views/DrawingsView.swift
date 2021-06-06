@@ -25,7 +25,10 @@ final class DrawingsView: UIView {
         return view
     }()
     
-    private let statusBarHeight: CGFloat = UIApplication.shared.statusBarFrame.height
+    private lazy var statusBarHeight: CGFloat = {
+        DConstants.statusBarHeight
+    }()
+    
     private var cellHeight: CGFloat = 0
     
     weak var delegate: DrawingsViewDelegate!

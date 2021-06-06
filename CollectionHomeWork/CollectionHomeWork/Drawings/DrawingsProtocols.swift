@@ -15,6 +15,7 @@ protocol DrawingsViewDelegate: AnyObject {
     func firstCellisntHidden()
     func didTap(at index: IndexPath)
     func didTapNewDrawingButton()
+    func selected(at index: IndexPath)
 }
 
 protocol DrawingsViewProtocol: AnyObject {

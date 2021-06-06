@@ -16,12 +16,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         let rootView = Assembly.createDrawingsModule()
         let navigationController = UINavigationController(rootViewController: rootView)
-        navigationController.isNavigationBarHidden = true
+        //navigationController.isNavigationBarHidden = true
         
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
         
         if let statusBarFrame = window?.windowScene?.statusBarManager?.statusBarFrame {
+            DConstants.statusBarHeight = statusBarFrame.height
             let statusBarBackgroundView = UIView(frame: statusBarFrame)
             window?.addSubview(statusBarBackgroundView)
             statusBarBackgroundView.backgroundColor = .white
