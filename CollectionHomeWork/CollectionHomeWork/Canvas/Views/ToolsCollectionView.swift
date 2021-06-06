@@ -24,7 +24,7 @@ final class ToolsCollectionView: UIView {
         let layout = CaruselLayout(with: self)
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
         cv.register(ToolCell.self, forCellWithReuseIdentifier: ToolCell.id)
-        cv.backgroundColor = .lightGray
+        cv.backgroundColor = .white
         cv.translatesAutoresizingMaskIntoConstraints = false
         cv.alwaysBounceHorizontal = true
         cv.delegate = self

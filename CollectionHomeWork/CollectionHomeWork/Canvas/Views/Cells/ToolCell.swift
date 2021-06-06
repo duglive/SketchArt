@@ -20,11 +20,13 @@ final class ToolCell: UICollectionViewCell {
         super.init(frame: frame)
         contentView.addSubview(imageView)
         self.layer.cornerRadius = frame.height / 2
+        self.layer.borderWidth = 1
+        self.layer.borderColor = UIColor.black.cgColor
         NSLayoutConstraint.activate([
-            imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            imageView.topAnchor.constraint(equalTo: contentView.topAnchor),
-            imageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+            imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
+            imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
+            imageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
+            imageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10)
         ])
     }
     
@@ -41,7 +43,7 @@ final class ToolCell: UICollectionViewCell {
 extension ToolCell {
     func configView(with tool: ToolType) {
         imageView.image = UIImage(named: tool.rawValue)
-        contentView.backgroundColor = .lightGray
+        contentView.backgroundColor = .white
     }
 }
 
