@@ -155,8 +155,14 @@ extension CanvasController {
             let textField = alert.textFields![0] as UITextField
             sketchName = textField.text ?? ""
             let drawImage = self.drawView.asImage()
-            Assembly.pictures.insert(PictureModel(with: drawImage, name: sketchName), at: 1)
-            print(sketchName)
+            if self.editImage != nil && self.index != nil {
+                let pic = Assembly.pictures[self.index!.row]
+                pic.set(drawImage, name: sketchName)
+                Assembly.pushDrawingcVC()
+            } else {
+                Assembly.pictures.insert(PictureModel(with: drawImage, name: sketchName), at: 1)
+            }
+            
             Assembly.pushDrawingcVC()
         })
         
