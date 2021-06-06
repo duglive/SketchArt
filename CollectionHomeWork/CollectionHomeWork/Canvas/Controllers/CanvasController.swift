@@ -86,13 +86,7 @@ extension CanvasController {
     }
     
     func setupToolCollectionView() {
-        view.addSubview(toolsCollectionView)
-        NSLayoutConstraint.activate([
-            toolsCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            toolsCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            toolsCollectionView.heightAnchor.constraint(equalToConstant: 60),
-            toolsCollectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
-        ])
+        toolsCollectionView.pin(view: self.view)
         toolsCollectionView.setupToolCollectionView()
     }
     

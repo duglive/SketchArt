@@ -8,7 +8,7 @@
 import UIKit
 
 final class ToolCell: UICollectionViewCell {
-    static var id = "ToolCell"
+    static var id = String(describing: self)
     
     private lazy var imageView: UIImageView = {
         let view = UIImageView()
@@ -52,7 +52,7 @@ extension ToolCell
     override var isSelected: Bool{
         didSet{
             UIView.animate(withDuration: 0.1, delay: 0.0, options: .curveEaseOut, animations: {
-                self.transform = self.isSelected ? CGAffineTransform(scaleX: 1.15, y: 1.15) : CGAffineTransform.identity
+                self.transform = self.isSelected ? CGAffineTransform(scaleX: 1.2, y: 1.2) : CGAffineTransform.identity
             }, completion: nil)
         }
     }

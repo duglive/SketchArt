@@ -92,3 +92,16 @@ extension ToolsCollectionView: CaruselLayoutDelegate {
 //        selected = index.row
     }
 }
+
+extension ToolsCollectionView {
+    func pin(view: UIView) {
+        view.addSubview(self)
+        
+        NSLayoutConstraint.activate([
+            leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            heightAnchor.constraint(equalToConstant: 60),
+            bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+        ])
+    }
+}
