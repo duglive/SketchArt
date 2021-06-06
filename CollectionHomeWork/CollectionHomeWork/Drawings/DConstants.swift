@@ -9,4 +9,5 @@ import UIKit
 
 final class DConstants {
     static let additinalMenuHeight: CGFloat = 50
+    static var statusBarHeight: CGFloat = 0
 }

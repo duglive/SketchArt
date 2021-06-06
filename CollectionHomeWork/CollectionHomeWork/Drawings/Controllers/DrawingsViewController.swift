@@ -34,8 +34,9 @@ final class DrawingsViewController: UIViewController {
         myView.setupAdditinalMenu()
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.isHidden = true
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -44,6 +45,10 @@ final class DrawingsViewController: UIViewController {
 }
 
 extension DrawingsViewController: DrawingsViewDelegate {
+    func selected(at index: IndexPath) {
+        navigationController?.pushViewController(DetailViewController(with: pictures[index.row]), animated: true)
+    }
+    
     func didTapNewDrawingButton() {
         newDrawing()
     }
@@ -52,6 +57,7 @@ extension DrawingsViewController: DrawingsViewDelegate {
         if index.row == 0 {
             didTapNewDrawingButton()
         }
+        selected(at: index)
     }
     
     func picturesCount() -> Int {
