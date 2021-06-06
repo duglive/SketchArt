@@ -146,6 +146,7 @@ extension CanvasController {
     
     @objc
     func doneAction() {
+      
         let drawImage = drawView.asImage()
         if editImage != nil && index != nil{
             let pic = Assembly.pictures[index!.row]
@@ -155,6 +156,26 @@ extension CanvasController {
         }
         Assembly.pictures.insert(PictureModel(with: drawImage), at: 1)
         Assembly.pushDrawingcVC()
+
+        var sketchName = String()
+        let alert = UIAlertController(title: "Сохранение", message: "Дайте рисунку имя", preferredStyle: .alert)
+        alert.addTextField { (textField : UITextField!) -> Void in
+            textField.placeholder = "Введите имя"
+        }
+        let action = UIAlertAction(title: "Сохранить", style: .default, handler: { action -> Void in
+            let textField = alert.textFields![0] as UITextField
+            sketchName = textField.text ?? ""
+            let drawImage = self.drawView.asImage()
+            Assembly.pictures.insert(PictureModel(with: drawImage, name: sketchName), at: 1)
+            print(sketchName)
+            Assembly.pushDrawingcVC()
+        })
+        
+        let cancelAction = UIAlertAction(title: "Отмена", style: .cancel)
+        alert.addAction(action)
+        alert.addAction(cancelAction)
+        present(alert, animated: true, completion: nil)
+   
     }
     
     @objc

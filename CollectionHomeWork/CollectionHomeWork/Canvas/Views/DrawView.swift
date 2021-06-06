@@ -120,7 +120,7 @@ class DrawView: UIView {
         
         NSLayoutConstraint.activate([
             topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 30),
-            bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 30),
+            bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -60),
             leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
             rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor)
         ])
