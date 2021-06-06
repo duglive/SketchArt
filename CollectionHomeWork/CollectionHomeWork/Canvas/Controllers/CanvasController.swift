@@ -115,6 +115,7 @@ extension CanvasController : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         colorButton.backgroundColor = colorArr[indexPath.row]
+        drawView.currentColor = colorButton.backgroundColor!
         tableView.isHidden = true
     }
 }

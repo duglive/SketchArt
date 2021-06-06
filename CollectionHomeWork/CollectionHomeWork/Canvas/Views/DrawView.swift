@@ -14,6 +14,8 @@ class DrawView: UIView {
     var arrCounterOfFigurs = [Int]()
     var lineCounter = 0
     
+    var currentColor: UIColor = .red
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
@@ -96,7 +98,7 @@ class DrawView: UIView {
     private func setShapeLayer(_ path: UIBezierPath) -> CAShapeLayer {
         let shapeLayer = CAShapeLayer()
         shapeLayer.path = path.cgPath
-        shapeLayer.strokeColor = UIColor.black.cgColor
+        shapeLayer.strokeColor = currentColor.cgColor
         shapeLayer.fillColor = UIColor.clear.cgColor
         shapeLayer.lineWidth = 3.0
         return shapeLayer
