@@ -36,43 +36,65 @@ class DrawView: UIView {
     }
     
     func drawSquare(_ start: CGPoint, _ end: CGPoint) {
-        let a = start
-        let b = end
-        
-        let ab = CGFloat(sqrt(Double(((b.x - a.x) * (b.x - a.x)) + ((b.x - a.x) * (b.x - a.x)))))
-        
+ 
         let path = UIBezierPath()
         path.move(to: start)
-        path.addLine(to: CGPoint(x: start.x + ab, y: start.y))
-        path.addLine(to: CGPoint(x: start.x + ab, y: start.y + ab))
-        path.addLine(to: CGPoint(x: start.x, y: start.y + ab))
+        path.addLine(to: CGPoint(x: end.x, y: start.y))
+        path.addLine(to: CGPoint(x: end.x, y: end.y))
+        path.addLine(to: CGPoint(x: start.x, y: end.y))
         path.addLine(to: start)
         removeSublayers()
         self.layer.addSublayer(setShapeLayer(path))
     }
     
     func drawTriangle(_ start: CGPoint, _ end: CGPoint) {
-        let a = start
-        let b = end
-        
-        let ab = CGFloat(sqrt(Double(((b.x - a.x) * (b.x - a.x)) + ((b.x - a.x) * (b.x - a.x)))))
         
         let path = UIBezierPath()
-        path.move(to: CGPoint(x: start.x, y: start.y + ab))
-        path.addLine(to: CGPoint(x: start.x + ab/2, y: start.y))
-        path.addLine(to: CGPoint(x: start.x + ab, y: start.y + ab))
+        path.move(to: CGPoint(x: (start.x + end.x)/2, y: start.y))
+        path.addLine(to: CGPoint(x: end.x, y: end.y))
+        path.addLine(to: CGPoint(x: start.x, y: end.y))
         path.close()
         removeSublayers()
         self.layer.addSublayer(setShapeLayer(path))
     }
 
     func drawRoundedSquare(_ start: CGPoint, _ end: CGPoint) {
-        let a = start
-        let b = end
         
-        let ab = CGFloat(sqrt(Double(((b.x - a.x) * (b.x - a.x)) + ((b.x - a.x) * (b.x - a.x)))))
+        var startP = start
+        var endP = end
         
-        let path = UIBezierPath(roundedRect: CGRect(x: a.x, y: a.y, width: ab, height: ab), cornerRadius: ab/4)
+        let ab = CGFloat(sqrt(Double(((endP.x - startP.x) * (endP.x - startP.x)) + ((endP.x - startP.x) * (endP.x - startP.x)))))
+        let cornerRadius: CGFloat = ab/4
+        
+        if startP.y > endP.y  {
+            let temp = startP.y
+            startP.y = endP.y
+            endP.y = temp
+        }
+        
+        if startP.x > endP.x  {
+            let temp = startP.x
+            startP.x = endP.x
+            endP.x = temp
+        }
+        
+        let path = UIBezierPath()
+        //arc a
+        path.addArc(withCenter: CGPoint(x: endP.x - cornerRadius, y: startP.y - cornerRadius), radius: ab/4, startAngle: 3*CGFloat.pi/2, endAngle: 0, clockwise: true)
+        path.addLine(to: CGPoint(x: endP.x, y: endP.y - cornerRadius))
+
+        //arc b
+        path.addArc(withCenter: CGPoint(x: endP.x - cornerRadius, y: endP.y - cornerRadius), radius: ab/4, startAngle: 0, endAngle: CGFloat.pi/2, clockwise: true)
+        path.addLine(to: CGPoint(x: startP.x + cornerRadius, y: endP.y))
+
+        //arc c
+        path.addArc(withCenter: CGPoint(x: startP.x + cornerRadius, y: endP.y - cornerRadius), radius: ab/4, startAngle: CGFloat.pi/2, endAngle: CGFloat.pi, clockwise: true)
+        path.addLine(to: CGPoint(x: startP.x, y: startP.y - cornerRadius))
+
+        //arc d
+        path.addArc(withCenter: CGPoint(x: startP.x + cornerRadius, y: startP.y - cornerRadius), radius: ab/4, startAngle: CGFloat.pi, endAngle: 3*CGFloat.pi/2, clockwise: true)
+        path.close()
+
         removeSublayers()
         self.layer.addSublayer(setShapeLayer(path))
     }
